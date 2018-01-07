@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> 
+    
+    <script src="node_modules/angular/angular.js"></script>
+    
+    <script src="main.js"></script>
+    <style>
+        .container{
+            box-shadow: 3px 3px 18px -3px;
+            margin-top: 110px;
+            width: 770px;
+            padding-bottom: 110px;
+            
+        }
+        .item{
+            box-sizing: border-box;
+            padding-right: 10px;
+            width: 180px;
+            text-align: right;
+            height: 40px;
+            font-size: 20px;
+            background-color: #eee;
+            cursor: pointer;
+            border: solid 1px #ddd;
+            box-shadow: inset 0px -6px 17px -10px;
+        }
+        .item:hover{
+            background-color: #fbfbfb;
+        }
+        .jimbotron{
+            text-align: center;
+            background-color: #b6fd92;
+            height: 82px;
+            /* padding-top: 95px; */
+            cursor: pointer;
+            width: 100%;
+            box-shadow: none;
+            font-size: 55px;
+            border: none;
+
+        }
+        .jimbotron:hover{
+            background-color: #a5ff77;
+        }
+        .jimbotron span{
+            font-size: 55px;
+        }
+        .block{
+            width: 385px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        p{
+            text-align: center;
+            font-size: 34px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body ng-app="app" ng-cloak>
+    <div class="container" ng-controller="main">
+        <p>Что если бы я купил биткоин раньше?</p>
+        <div class="block">
+            <label for="count" style="margin-left:45px;">Сумма в USD</label>
+            <label for="date" style="margin-left:115px;">Дата покупки</label> 
+            <input type="text" id="count" ng-model="count" class="item" style="margin-right: 20px;" ng-change="change()">      
+            
+            <select ng-model="date" 
+                    ng-options="value as (value.x*1000|date:'yyyy-MM-dd': 'UTC') for value in (lol.values| orderBy:'value.x':true) track by value.y "
+                    class="item"
+                    ng-change="change()"
+                    id="date"></select>
+            
+        </div>
+        <div class="block">
+            <label for="nowInBTC" style="margin-left:80px;">Состояние на сегодняшний день</label>
+            <input type="text" ng-model="nowInBTC" class="jimbotron" disabled id="nowInBTC">
+        </div>
+        
+        
+
+    </div>
+</body>
+</html>
